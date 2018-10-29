@@ -1,9 +1,8 @@
 
 #Pandas Read CSV:
-----------------
 import pandas as pd
 
-def = pd.read_csv("data/AAPL.csv")
+df = pd.read_csv("data/AAPL.csv")
 print df.head() # just top 5 lines
 print df.tail() # just last 5 lines
 print df.tail(6) # just last 6 lines
@@ -30,9 +29,9 @@ df[['Close', 'Adj Close']].plot()
 
 
 # Plot Multiple range, multiple stocks, align dates and put dates in proper order
-
+import os
 import pandas as pd
-import matploglib.pyplot as plt
+import matplotlib.pyplot as plt
 
 #join multiple dataframes
 
@@ -80,3 +79,31 @@ def get_data(symbols, dates):
     return df
 
 #slicing data
+
+#row slicing, this will only show data for jan
+print df.ix['2010-01-01':'2010-01-31']
+
+#column slicing
+print df['GOOG']
+print df['IBM', 'GLD']
+
+#slice by column and row, displays SPY and IBM over the specified date range
+print df.ix['2010-03-10':'2010-03-15', ['SPY', 'IBM']]
+
+
+#plotting
+def plot_data(df, title="Stock Prices"):
+    ax = df.plot(title=title, fontsize=2)
+    ax = set_xlabel("Date")
+    ax = set_ylabel("Price")
+    plt.show()
+
+#plot specific parts of a data set
+def plot_selected(df, columns, start_index, end_index):
+    df = df.ix[start_index:end_index, columns]
+    df.plot()
+    plt.show()
+
+#normalization, using first row of data set
+def normalize_data(df):
+    return df/df.ix[0,:]
