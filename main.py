@@ -3,10 +3,10 @@
 import pandas as pd
 
 df = pd.read_csv("data/AAPL.csv")
-print df.head() # just top 5 lines
-print df.tail() # just last 5 lines
-print df.tail(6) # just last 6 lines
-print df[10:21] # data between 10 to 20
+print(df.head()) # just top 5 lines
+print(df.tail()) # just last 5 lines
+print(df.tail(6)) # just last 6 lines
+print(df[10:21]) # data between 10 to 20
 
 #find max close for symbol
 def get_max_close(symbol):
@@ -57,7 +57,7 @@ for symbo in symbols:
 
 #drop nan values
 df1 = df1.dropna()
-print df1
+print(df1)
 
 
 #util func to reutrn path of csv file for a stock symbol
@@ -81,14 +81,14 @@ def get_data(symbols, dates):
 #slicing data
 
 #row slicing, this will only show data for jan
-print df.ix['2010-01-01':'2010-01-31']
+print(df.ix['2010-01-01':'2010-01-31'])
 
 #column slicing
-print df['GOOG']
-print df['IBM', 'GLD']
+print(df['GOOG'])
+print(df['IBM', 'GLD'])
 
 #slice by column and row, displays SPY and IBM over the specified date range
-print df.ix['2010-03-10':'2010-03-15', ['SPY', 'IBM']]
+print(df.ix['2010-03-10':'2010-03-15', ['SPY', 'IBM']])
 
 
 #plotting
