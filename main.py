@@ -94,8 +94,8 @@ print(df.ix['2010-03-10':'2010-03-15', ['SPY', 'IBM']])
 #plotting
 def plot_data(df, title="Stock Prices"):
     ax = df.plot(title=title, fontsize=2)
-    ax = set_xlabel("Date")
-    ax = set_ylabel("Price")
+    ax.set_xlabel("Date")
+    ax.set_ylabel("Price")
     plt.show()
 
 #plot specific parts of a data set
