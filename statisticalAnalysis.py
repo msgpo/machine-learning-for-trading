@@ -63,7 +63,6 @@ def get_bollinger_bands(rm, rstd):
     return upper_band, lower_band
 
 
-def calculate_daily_return():
-    
+
 if __name__ == "__main__":
     test_run()
